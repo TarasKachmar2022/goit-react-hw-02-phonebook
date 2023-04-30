@@ -35,7 +35,6 @@ const ContactForm = ({ onSave }) => {
   };
 
   const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
     onSave({ id: nanoid(), ...values });
     resetForm();
   };
