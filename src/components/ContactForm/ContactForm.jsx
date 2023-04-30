@@ -1,9 +1,19 @@
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Field } from 'formik';
 import { nanoid } from 'nanoid';
 import * as yup from 'yup';
+import {
+  Form,
+  FormLabel,
+  FormLabelSpan,
+  ErrorMessage,
+  FormBtn,
+} from './ContactForm.styled';
 
 // const PATTERN_FOR_NAME =
 //   "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$";
+
+// const PATTERN_FOR_TEL =
+//   "+?d{1,4}?[-.s]?(?d{1,3}?)?[-.s]?d{1,4}[-.s]?d{1,4}[-.s]?d{1,9}";
 
 const schema = yup.object().shape({
   // Приклад:
@@ -15,11 +25,13 @@ const schema = yup.object().shape({
   //   )
   //   .required("Поле обов'язкове для заповнення!"),
   name: yup.string().required(),
+  number: yup.number().required(),
 });
 
 const ContactForm = ({ onSave }) => {
   const initialValues = {
     name: '',
+    number: '',
   };
 
   const handleSubmit = (values, { resetForm }) => {
@@ -35,12 +47,17 @@ const ContactForm = ({ onSave }) => {
       onSubmit={handleSubmit}
     >
       <Form>
-        <label htmlFor="name">
-          Name
+        <FormLabel htmlFor="name">
+          <FormLabelSpan>Name</FormLabelSpan>
           <Field name="name" />
           <ErrorMessage name="name" component="div" />
-        </label>
-        <button type={'submit'}>Add contact</button>
+        </FormLabel>
+        <FormLabel htmlFor="number">
+          <FormLabelSpan>Number</FormLabelSpan>
+          <Field type="tel" name="number" />
+          <ErrorMessage name="number" component="div" />
+        </FormLabel>
+        <FormBtn type={'submit'}>Add contact</FormBtn>
       </Form>
     </Formik>
   );

@@ -1,13 +1,15 @@
 import PropTypes from 'prop-types';
+import ContactItem from '../ContactItem/ContactItem';
+import { List } from './ContactList.Styled';
 
 const ContactList = ({ contacts }) => {
   console.log(contacts);
   return (
-    <ul>
-      {contacts.map(({ id, name }) => (
-        <li key={id}>{name}</li>
+    <List>
+      {contacts.map(({ id, name, number }) => (
+        <ContactItem key={id} name={name} number={number} />
       ))}
-    </ul>
+    </List>
   );
 };
 
@@ -16,6 +18,7 @@ ContactList.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
     }).isRequired
   ).isRequired,
 };
