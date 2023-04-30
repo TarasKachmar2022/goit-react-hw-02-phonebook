@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { GlobalStyle } from '../GlobalStyle';
 import { FindContactsByName } from './App.styled';
 import { Layout } from '../Layout/Layout';
-import ContactForm from '../ContactForm/ContactForm';
-import ContactsFilter from '../ContactsFilter/ContactsFilter';
-import ContactList from '../ContactList/ContactList';
+import ContactForm from '../ContactForm';
+import ContactsFilter from '../ContactsFilter';
+import ContactList from '../ContactList';
 
 class App extends Component {
   state = {

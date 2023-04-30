@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import ContactCard from '../ContactCard/ContactCard';
+import ContactCard from '../ContactCard';
 import { List } from './ContactList.Styled';
 
 const ContactList = ({ contacts, onDelete }) => {
