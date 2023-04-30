@@ -25,9 +25,14 @@ class App extends Component {
     );
 
     if (findContacts) {
-      alert(`Контакт ${findContacts.name} вже існує!`);
+      alert(`${findContacts.name} is already in contacts.`);
       return;
     }
+
+    // if (findContacts) {
+    //   alert(`Контакт ${findContacts.name} вже існує!`);
+    //   return;
+    // }
 
     this.setState(prevState => ({
       contacts: [...prevState.contacts, newContact],
