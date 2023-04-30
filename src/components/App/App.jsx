@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { GlobalStyle } from '../GlobalStyle';
 import { FindContactsByName } from './App.styled';
+import { Layout } from '../Layout/Layout';
 import ContactForm from '../ContactForm/ContactForm';
 import ContactsFilter from '../ContactsFilter/ContactsFilter';
 import ContactList from '../ContactList/ContactList';
@@ -58,7 +59,7 @@ class App extends Component {
     const { filter } = this.state;
     const visibleContacts = this.getFilterContacts();
     return (
-      <div>
+      <Layout>
         <h1>Phonebook</h1>
         <ContactForm onSave={this.addContact} />
         <h2>Contacts</h2>
@@ -69,7 +70,7 @@ class App extends Component {
         />
         <ContactList contacts={visibleContacts} onDelete={this.deleteContact} />
         <GlobalStyle />
-      </div>
+      </Layout>
     );
   }
 }
