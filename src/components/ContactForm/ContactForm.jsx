@@ -1,5 +1,4 @@
 import { Formik, Field } from 'formik';
-import { nanoid } from 'nanoid';
 import * as yup from 'yup';
 import {
   Form,
@@ -35,7 +34,7 @@ const ContactForm = ({ onSave }) => {
   };
 
   const handleSubmit = (values, { resetForm }) => {
-    onSave({ id: nanoid(), ...values });
+    onSave({ ...values });
     resetForm();
   };
 

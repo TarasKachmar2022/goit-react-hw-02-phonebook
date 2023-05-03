@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { nanoid } from 'nanoid';
 import { GlobalStyle } from '../GlobalStyle';
 import { FindContactsByName } from './App.styled';
 import { Layout } from '../Layout/Layout';
@@ -35,7 +36,7 @@ class App extends Component {
     // }
 
     this.setState(prevState => ({
-      contacts: [...prevState.contacts, newContact],
+      contacts: [...prevState.contacts, { ...newContact, id: nanoid() }],
     }));
   };
 
